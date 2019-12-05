@@ -1,0 +1,111 @@
+ #@_layout() #define _index()
+ 
+ <link rel="stylesheet" href="#(base)/fronts/css/cpic.css">
+
+<div class="tpl-content-wrapper">
+	<div class="container-fluid am-cf">
+
+		<div class="row">
+			<div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+				<div class="widget am-cf">
+					<div class="widget-head am-cf">
+						<div class="widget-title am-fl">大师作品</div>
+						<div class="widget-function am-fr">
+							<a href="javascript:;" class="am-icon-cog"></a>
+						</div>
+					</div>
+					<div class="widget-body am-fr">
+						<form class="am-form tpl-form-border-form"
+							onsubmit="return check()" action="#(base)/admin/savepost" method="post">
+							<input hidden="hidden" name="post.post_id"
+								value="#(post.post_id??)">
+							<input hidden="hidden" name="cronimg" id="cronimg">							
+							<div class="am-form-group">
+								<label for="user-name"
+									class="am-u-sm-12 am-form-label am-text-left">标题 <span
+									class="tpl-form-line-small-title">Title</span></label>
+								<div class="am-u-sm-12">
+									<input type="text" class="tpl-form-input am-margin-top-xs"
+										required="required" value="#(post.post_title??)"
+										name="post.post_title" placeholder="请输入标题文字"> <small>请填写标题。</small>
+								</div>
+							</div>
+							
+							<div class="am-form-group">
+								<label for="user-name"
+									class="am-u-sm-12 am-form-label am-text-left">文章简介 <span
+									class="tpl-form-line-small-title">Auto</span></label>
+								<div class="am-u-sm-12">
+									<input type="text" class="tpl-form-input am-margin-top-xs"
+										required="required" value="#(post.post_auto??)"
+										name="post.post_auto" placeholder="请输入文章简介"> <small>请填写文章简介。</small>
+								</div>
+							</div>
+                            <div class="am-form-group">
+								<label for="user-name"
+									class="am-u-sm-12 am-form-label am-text-left">请上传封面 <span
+									class="tpl-form-line-small-title">Pic</span></label>
+								<div class="am-u-sm-12">								
+									<div class="am-form-group am-form-file">
+										<div class="tpl-form-file-img">
+											<img src="#(base)#(post.post_pic?? '/fronts/images/co.png')" id="imgs">
+										</div>
+										<small>点击上传封面</small> <input type="file" id="file"
+											accept="image/*">
+									</div>
+									<img id="img" style="max-width: 10%">								
+								</div>
+							</div>
+							<div class="am-form-group">
+								<label for="user-intro"
+									class="am-u-sm-12 am-form-label  am-text-left">文章内容</label>
+								<div class="am-u-sm-12 am-margin-top-xs">
+									<textarea class="summernote"  name="post.post_content"
+										required="required">#(post.post_content??)</textarea>
+								</div>
+							</div>							
+							
+							
+							<div class="am-form-group">
+								<div class="am-u-sm-12 am-u-sm-push-12">
+									<button type="submit"
+										class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="#(base)/fronts/js/imgFileupload.js"></script>
+<script type="text/javascript">
+	var imgFile1 = new ImgUploadeFiles('.box2', function(e) {
+		this.init({
+			MAX : 9,
+			MH : 5800, //像素限制高度
+			MW : 5900, //像素限制宽度
+			callback : function(arr) {
+				console.log(arr)
+			}
+		});
+	});
+</script>
+<script type="text/javascript">
+	function addimg() {
+
+		$(".imsg").each(
+				function(index, element) {
+
+					$("#addi").append(
+							'<input type="text" value="' + $(this).attr("src")
+									+ '" name="pic" />');
+
+				});
+
+	}
+</script>
+
+
+#end

@@ -1,0 +1,113 @@
+#@_fronts() #define _fmain()
+
+<link rel="stylesheet" href="#(base)/fronts/css/innerpage.css">
+
+
+<div class="breadcrumb-container" style="margin-top: 30px;">
+	<div class="container">
+		<div class="relative">
+			<ul class="bc unstyled clearfix">
+				<li><a href="#(base)/">主页</a></li>
+				<li class="active">交流论坛</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<main id="main-content" role="main">
+
+<section class="section">
+	<div class="container">
+
+		#if(pages==1)
+		<h2>精品推荐</h2>
+		<table class="tbl-cart">
+			<tbody>
+				#for(li:good??)
+				<tr>
+					<td><a class="entry-thumbnail" > <img
+							src="#(base)#(li.user_pic?? '/fronts/images/co.png')"  alt="" />
+
+					</a> <a class="entry-title"
+						href="#(base)/#if(li.post_plate==5)onework#else onepost#end?id=#(li.post_id??)"><strong
+							class="text-bold row-total">#(li.post_title??)</strong></a></td>
+					<td><span class="unit-price">#(li.user_nickname??'用户12345678')</span></td>
+					<td class="hidden-xs"><font size="0.9em;">发布时间：#date(li.post_dates??)</font></td>
+				</tr>
+				#end
+			</tbody>
+		</table>
+		#end
+
+
+		<div style="margin-top: 30px;margin-bottom: 20px;">
+			<span style="font-size: 2.0em;">交流论坛</span>
+			<div class="col-xs-12 col-sm-12 col-md-6 center-xs"
+				style="float: right;">
+				<ul class="paginator li-m-r-l pull-right">
+					<li><a class="round-icon" #if(list.isFirstPage()??)
+						disabled="disabled" #else href="#(base)/post?pages=#(pages-1)"
+						#end data-toggle="tooltip" data-title="上一页"><i
+							class="iconfont-angle-left"></i></a></li> 
+					#if(pages>3)
+					<li><a>...</a></li> 
+					#end 
+					#if(pages-2>0)
+					<li><a href="#(base)/post?pages=#(pages-2)">#(pages-2)</a></li>
+					#end 
+					#if(pages-1>0)
+					<li><a href="#(base)/post?pages=#(pages-1)">#(pages-1)</a></li>
+					#end
+					<li><a style="color: red;"
+						href="#(base)/post?pages=#(pages??)">#(pages??)</a></li>
+
+					#if(list.totalPage -pages>0)
+					<li><a href="#(base)/post?pages=#(pages+1)">#(pages+1)</a></li>
+					#end 
+					#if(list.totalPage -pages>1)
+					<li><a href="#(base)/post?pages=#(pages+2)">#(pages+2)</a></li>
+					#end #if(list.totalPage -pages >2)
+					<li><a>...</a></li> 
+					#end
+
+					<li><a class="round-icon" #if(list.isLastPage()??)
+						disabled="disabled" #else href="#(base)/post?pages=#(pages+1)"
+						#end data-toggle="tooltip" data-title="下一页"><i
+							class="iconfont-angle-right"></i></a></li>
+				</ul>
+			</div>
+		</div>
+		<table class="tbl-cart">
+			<tbody>
+				#for(li:list.list??)
+				<tr>
+					<td><a class="entry-thumbnail"> <img
+							src="#(base)#(li.user_pic?? '/fronts/images/co.png')" class="lazyOwl thumb" alt="" />
+
+					</a> <a class="entry-title"
+						href="#(base)/#if(li.post_plate==5)onework#else onepost#end?id=#(li.post_id??)"><strong
+							class="text-bold row-total">#(li.post_title??)</strong></a></td>
+					<td><span class="unit-price">#(li.user_nickname??'用户12345678')</span></td>
+					<td class="hidden-xs"><font size="0.9em;">发布时间：#date(li.post_dates??)</font></td>
+				</tr>
+				#end
+			</tbody>
+		</table>
+
+
+
+
+
+	</div>
+
+</section>
+</main>
+
+
+
+
+
+
+
+#end

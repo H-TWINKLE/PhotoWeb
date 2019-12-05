@@ -1,0 +1,29 @@
+ #@_layout() #define _index()
+
+<!-- 内容区域 -->
+
+<div class="tpl-content-wrapper">
+
+	<div class="row-content am-cf">
+		<div class="widget am-cf">
+			<div class="widget-body">
+				<div class="tpl-page-state">
+					<div class="tpl-page-state-title am-text-center tpl-error-title">#(info.infotitle??)</div>
+					<div class="tpl-error-title-info">#date(info.infodates??)</div>
+					<div class="tpl-page-state-content tpl-error-content">
+
+						#(info.infocontent??)
+
+						<button type="button" style="margin-top: 50px;"
+							class="am-btn am-btn-secondary am-radius tpl-error-btn">浏览次数
+							#(info.infoseenum??)</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+#end

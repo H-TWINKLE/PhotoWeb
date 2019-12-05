@@ -1,0 +1,77 @@
+#@_fronts() #define _user()
+
+<link rel="stylesheet" href="#(base)/fronts/css/innerpage.css">
+
+<section class="col-xs-12 col-sm-8 col-md-9">
+	<section class="section">
+		<div class="row">
+			<div style="margin-top: 30px;margin-bottom: 20px;">
+			<span style="font-size: 2.0em;">我的评论<small> 共有#(list.list.size()??0) 条评论</small></span>
+			<div class="col-xs-12 col-sm-12 col-md-6 center-xs"
+				style="float: right;">
+				<ul class="paginator li-m-r-l pull-right">
+					<li><a class="round-icon" #if(list.isFirstPage()??)
+						disabled="disabled" #else href="#(base)/user/myc?pages=#(pages-1)"
+						#end data-toggle="tooltip" data-title="上一页"><i
+							class="iconfont-angle-left"></i></a></li> 
+					#if(pages>3)
+					<li><a>...</a></li> 
+					#end 
+					#if(pages-2>0)
+					<li><a href="#(base)/user/myc?pages=#(pages-2)">#(pages-2)</a></li>
+					#end 
+					#if(pages-1>0)
+					<li><a href="#(base)/user/myc?pages=#(pages-1)">#(pages-1)</a></li>
+					#end
+					<li><a style="color: red;"
+						href="#(base)/user/myc?pages=#(pages??)">#(pages??)</a></li>
+
+					#if(list.totalPage -pages>0)
+					<li><a href="#(base)/user/myc?pages=#(pages+1)">#(pages+1)</a></li>
+					#end 
+					#if(list.totalPage -pages>1)
+					<li><a href="#(base)/user/myc?pages=#(pages+2)">#(pages+2)</a></li>
+					#end #if(list.totalPage -pages >2)
+					<li><a>...</a></li> 
+					#end
+
+					<li><a class="round-icon" #if(list.isLastPage()??)
+						disabled="disabled" #else href="#(base)/user/myc?pages=#(pages+1)"
+						#end data-toggle="tooltip" data-title="下一页"><i
+							class="iconfont-angle-right"></i></a></li>
+				</ul>
+			</div>
+		</div>
+<hr>
+			#for(li:list.list??)
+			<div class="row" style="margin-top: 20px; margin-bottom: 20px;">
+
+				<div class="col-xs-12 col-sm-12 col-md-3"
+					style="margin: 0 auto; text-align: center;">
+					<img
+						style="border-radius: 50%; overflow: hidden; width: 70px; height: 70px;"
+						src="#(base)#(li.user_pic?? '/fronts/images/co.png')" />
+
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-9"
+					style="margin-left: -50px;">
+					<section class="widget widget-subscription">
+						<h4 class="widget-title">
+							帖子：<a href="#(base)/onepost?id=#(li.comment_post??)">#(li.post_title??) </a> <small style="float: right;">#date(li.comment_dates??)</small>
+						</h4>
+						<div class="widget-content">
+							<p>评论：#(li.comment_content??)</p>
+						</div>
+					</section>
+				</div>
+			</div>
+			<hr>
+			
+			#end
+		</div>
+	</section>
+</section>
+
+<!-- Scripts -->
+
+#end

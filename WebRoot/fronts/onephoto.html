@@ -1,0 +1,42 @@
+#@_fronts() #define _fmain()
+
+<link rel="stylesheet" href="#(base)/fronts/assets/css/main.css" />
+
+<style>
+a {
+	text-decoration: none;
+}
+</style>
+
+<main id="main-content" role="main"> <!-- PROMO BOXES -->
+<section class="section promos">
+	<div class="container">
+
+		<!-- Wrapper -->
+		<div id="wrapper" style="margin-bottom: 50px;">
+			<!-- Main -->
+			<div id="main">
+
+				#for(li:pic??)
+				<article class="thumb">
+					<a href="#(li.pic_file_url.contains("http")?li.pic_file_url??:base+li.pic_file_url)" class="image"><img
+						src="#(li.pic_file_url.contains("http")?li.pic_file_url??:base+li.pic_file_url)" alt="" /></a>
+					<h2>
+						<a download="w3logo" href="#(li.pic_file_url.contains("http")?li.pic_file_url??:base+li.pic_file_url)">下载</a>
+					</h2>
+					<p>#(li.pic_auto??).</p>
+				</article>
+				#end
+			</div>
+		</div>
+
+	</div>
+</section>
+</main>
+
+<!-- Scripts -->
+<script src="#(base)/fronts/assets/js/jquery.poptrox.min.js"></script>
+<script src="#(base)/fronts/assets/js/skel.min.js"></script>
+<script src="#(base)/fronts/assets/js/util.js"></script>
+<script src="#(base)/fronts/assets/js/main.js"></script>
+#end

@@ -1,0 +1,98 @@
+#@_fronts() #define _fmain()
+
+<link rel="stylesheet" href="#(base)/fronts/assets/css/main.css" />
+
+<main id="main-content" role="main">>
+<section class="section promos">
+	<div class="container">
+		<div class="row">
+
+			<h1 style="color: #f65a5b;; font-size: 2.0em; margin-left: 10px;">
+				#(post.post_title??)</h1>
+
+			<h4 style="color: #0f0f0f; font-size: 1.5em">
+				#(post.user_nickname??)<small style="margin-left: 50px;">#date(post.post_dates??)</small>
+			</h4>
+
+			<div id="wrapper" style="margin-bottom: 50px;">
+				<!-- Main -->
+				<div id="main">
+
+					#for(li:post.img??)
+					<article class="thumb">
+						<a href="#(li.contains("http")?li??:base+li)" class="image"><img src="#(li.contains("http")?li??:base+li)" alt="" /></a>
+						<h2>
+							<a download="w3logo" href="#(li??)">下载</a>
+						</h2>
+					</article>
+					#end
+				</div>
+			</div>
+
+			<div style="margin-top: 50px; color: #292659; font-size: 1.4em">#(post.post_content??)</div>
+
+            <HR style="margin-top: 50px;" color=#987cb9 SIZE=1>
+
+			<h1
+				style="color: #0f0f0f; font-size: 2.5em; margin-top: 20px; margin-left: 10px;">
+				评论 <small style="margin-left: 10px;">共有#(comm.size()??0)条评论</small>
+			</h1>
+
+			#for(li:comm??)
+			<div class="row" style="margin-top: 20px;margin-bottom: 20px;">
+
+				<div class="col-xs-12 col-sm-12 col-md-3"
+					style="margin: 0 auto; text-align: center;">
+					<img
+						style="border-radius: 50%; overflow: hidden; width: 100px; height: 100px;"
+						src="#(base)#(li.user_pic?? '/fronts/images/co.png')" />
+
+				</div>
+				<div class="col-xs-12 col-sm-12 col-md-9"
+					style="margin-left: -50px;">
+					<section class="widget widget-subscription">
+						<h2 class="widget-title" style="color: red;">
+							#(li.user_nickname??) <small style="float: right;">#date(li.comment_dates??)</small>
+						</h2>
+						<div class="widget-content">
+							<p>#(li.comment_content??)</p>
+						</div>
+					</section>
+				</div>
+			</div>
+			
+			<hr color="#fff">
+			
+			#end			
+
+			<form action="#(base)/addcomment" method="post">
+				<input hidden="" name="id" value="#(post.post_id??)" />
+				<div style="color: #0f0f0f; font-size: 1.5em; margin-top: 20px；">
+					<div class="col-xs-12 col-sm-12 col-md-12">
+						<div class="form-group stylish-input">
+							<label for="contactMSG" class="required">添加评论</label>
+							<textarea id="contactMSG" class="form-control" name="message"
+								style="height: 178px;" data-validate=".{2,400}$" required=""></textarea>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-12">
+						<button class="btn btn-default btn-round pull-right">添加评论</button>
+					</div>
+
+				</div>
+			</form>
+
+
+		</div>
+	</div>
+</section>
+</main>
+
+<!-- Scripts -->
+<script src="#(base)/fronts/assets/js/jquery.poptrox.min.js"></script>
+<script src="#(base)/fronts/assets/js/skel.min.js"></script>
+<script src="#(base)/fronts/assets/js/util.js"></script>
+<script src="#(base)/fronts/assets/js/main.js"></script>
+
+#end

@@ -1,0 +1,131 @@
+ #@_layout() #define _index()
+<div class="tpl-content-wrapper">
+	<div class="container-fluid am-cf">
+		<div class="row">
+			<div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+				<div class="widget am-cf">
+					<div class="widget-head am-cf">
+						<div class="widget-title am-fl">#(u.user_email??)</div>
+						<div class="widget-function am-fr">
+							<a href="javascript:;" class="am-icon-cog"></a>
+						</div>
+					</div>
+					<div class="widget-body am-fr">
+						<form class="am-form tpl-form-border-form tpl-form-border-br"
+							method="post" action="#(base)/admin/modifyuser">
+							<input hidden="hidden" name="cronimg" id="cronimg"> <input
+								hidden="hidden" name="user.user_id" value="#(u.user_id??)">
+							<input hidden="hidden" name="id" value="#(u.user_id??)">
+							<div class="am-form-group">
+								<label for="user-name" class="am-u-sm-3 am-form-label">用户名
+									<span class="tpl-form-line-small-title">Email</span>
+								</label>
+								<div class="am-u-sm-9">
+									<input type="text" class="tpl-form-input" id="user-name"
+										name="user.user_email" value="#(u.user_email??)" disabled="disabled"
+										placeholder="请输入标题文字"> <small>这里是你的登录用户名。</small>
+								</div>
+							</div>
+							<div class="am-form-group">
+								<label for="user-weibo" class="am-u-sm-3 am-form-label">头像
+									<span class="tpl-form-line-small-title">Images</span>
+								</label>
+								<div class="am-u-sm-9">
+									<div class="am-form-group am-form-file">
+										<div class="tpl-form-file-img">
+											<img src="#(base)#(u.user_pic?? '/fronts/images/co.png')" id="imgs">
+										</div>
+										<small>点击上传头像</small> <input type="file" id="file"
+											accept="image/*">
+									</div>
+									<img id="img" style="max-width: 10%">
+								</div>
+							</div>
+							<div class="am-form-group">
+								<label for="user-email" class="am-u-sm-3 am-form-label">昵称
+									<span class="tpl-form-line-small-title">Nickname</span>
+								</label>
+								<div class="am-u-sm-9">
+									<input type="text" class="am-form-field tpl-form-no-bg"
+										name="user.user_nickname" value="#(u.user_nickname??)"
+										placeholder="请输入标题文字"> <small>这里是你的昵称</small>
+								</div>
+							</div>
+							<div class="am-form-group">
+								<label for="user-email" class="am-u-sm-3 am-form-label">联系方式
+									<span class="tpl-form-line-small-title">Tel</span>
+								</label>
+								<div class="am-u-sm-9">
+									<input type="text" class="am-form-field tpl-form-no-bg"
+										name="user.user_tel" value="#(u.user_tel??)" placeholder="请输入标题文字">
+									<small>这里是你的联系方式</small>
+								</div>
+							</div>
+							<div class="am-form-group">
+								<label class="am-u-sm-3 am-form-label">个性签名 <span
+									class="tpl-form-line-small-title">Auto</span></label>
+								<div class="am-u-sm-9">
+									<input type="text" name="user.user_auto" value="#(u.user_auto??)"
+										placeholder="请输入标题文字">
+								</div>
+							</div>
+							<div class="am-form-group">
+								<label for="user-phone" class="am-u-sm-3 am-form-label">性别
+									<span class="tpl-form-line-small-title">Sex</span>
+								</label>
+								<div class="am-u-sm-9">
+									<select name="user.user_sex" >
+										<option value="1" #if(u.user_sex??== 1) selected="selected" #end>男</option>
+										<option value="2" #if(u.user_sex??== 2) selected="selected" #end>女</option>
+									</select>
+								</div>
+							</div>
+							<div class="am-form-group">
+								<label for="user-weibo" class="am-u-sm-3 am-form-label">家庭住址
+									<span class="tpl-form-line-small-title">Home</span>
+								</label>
+								<div class="am-u-sm-9">
+									<input type="text" name="user.user_home" value="#(u.user_home??)"
+										id="user-weibo" placeholder="请填写您的家庭住址">
+									<div></div>
+								</div>
+							</div>
+							<div class="am-form-group">
+								<label for="user-email" class="am-u-sm-3 am-form-label">生日
+									<span class="tpl-form-line-small-title">Birthday</span>
+								</label>
+								<div class="am-u-sm-9">
+									<input type="text" class="am-form-field tpl-form-no-bg"
+										name="user.user_birthday" value="#(u.user_birthday??)" placeholder="生日"
+										data-am-datepicker=""> <small>这里是您的生日信息</small>
+								</div>
+							</div>
+							<div class="am-form-group">
+								<label for="user-intro" class="am-u-sm-3 am-form-label">管理员</label>
+								<div class="am-u-sm-9">
+									<div class="tpl-switch">
+										<input type="checkbox" name="state"
+											class="ios-switch bigswitch tpl-switch-btn" #if(u.user_auth?? ==
+											2) checked="checked" #end>
+										<div class="tpl-switch-btn-view">
+											<div></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="am-form-group">
+								<div class="am-u-sm-9 am-u-sm-push-3">
+									<button type="submit"
+										class="am-btn am-btn-primary tpl-btn-bg-color-success ">修改</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+#end

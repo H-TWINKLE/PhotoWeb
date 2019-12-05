@@ -1,0 +1,81 @@
+ #@_layout() #define _index()
+
+<div class="tpl-content-wrapper">
+	<div class="container-fluid am-cf">
+
+		<div class="row">
+			<div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+				<div class="widget am-cf">
+					<div class="widget-head am-cf">
+						<div class="widget-title am-fl">资讯</div>
+						<div class="widget-function am-fr">
+							<a href="javascript:;" class="am-icon-cog"></a>
+						</div>
+					</div>
+					<div class="widget-body am-fr">
+						<form class="am-form tpl-form-border-form"
+							onsubmit="return check()" action="#(base)/admin/saveinfo" method="post">
+							<input hidden="hidden" name="info.info_id"
+								value="#(info.info_id??)">
+							<input hidden="hidden" name="cronimg" id="cronimg"> 
+							<div class="am-form-group">
+								<label for="user-name"
+									class="am-u-sm-12 am-form-label am-text-left">标题 <span
+									class="tpl-form-line-small-title">Title</span></label>
+								<div class="am-u-sm-12">
+									<input type="text" class="tpl-form-input am-margin-top-xs"
+										required="required" value="#(info.info_title??)"
+										name="info.info_title" placeholder="请输入标题文字"> <small>请填写标题。</small>
+								</div>
+							</div>
+							<div class="am-form-group">
+								<label for="user-name"
+									class="am-u-sm-12 am-form-label am-text-left">简介 <span
+									class="tpl-form-line-small-title">Auto</span></label>
+								<div class="am-u-sm-12">
+									<textarea type="text" class="tpl-form-input am-margin-top-xs"
+										required="required"  rows="4"
+										name="info.info_auto" placeholder="请输入标题文字">#(info.info_auto??)</textarea> <small>请填写简介。</small>
+								</div>
+							</div>
+							<div class="am-form-group">
+								<label for="user-name"
+									class="am-u-sm-12 am-form-label am-text-left">请上传封面 <span
+									class="tpl-form-line-small-title">Pic</span></label>
+								<div class="am-u-sm-12">								
+									<div class="am-form-group am-form-file">
+										<div class="tpl-form-file-img">
+											<img src="#(base)#(info.info_img?? '/fronts/images/co.png')" id="imgs">
+										</div>
+										<small>点击上传封面</small> <input type="file" id="file"
+											accept="image/*">
+									</div>
+									<img id="img" style="max-width: 10%">								
+								</div>
+							</div>
+
+							<div class="am-form-group">
+								<label for="user-intro"
+									class="am-u-sm-12 am-form-label  am-text-left">文章内容</label>
+								<div class="am-u-sm-12 am-margin-top-xs">
+									<textarea class="summernote" name="info.info_content"
+										required="required">#(info.info_content??)</textarea>
+								</div>
+							</div>
+							<div class="am-form-group">
+								<div class="am-u-sm-12 am-u-sm-push-12">
+									<button type="submit"
+										class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+#end

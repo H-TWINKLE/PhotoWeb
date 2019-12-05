@@ -1,0 +1,40 @@
+#@_layout() #define _main()
+
+<body data-type="login">
+	<script src="#(base)/admin/assets/js/theme.js"></script>
+	<div class="am-g tpl-g">
+		<!-- 风格切换 -->
+		<div class="tpl-skiner">
+			<div class="tpl-skiner-toggle am-icon-cog"></div>
+			<div class="tpl-skiner-content">
+				<div class="tpl-skiner-content-title">选择主题</div>
+				<div class="tpl-skiner-content-bar">
+					<span class="skiner-color skiner-white" data-color="theme-white"></span>
+					<span class="skiner-color skiner-black" data-color="theme-black"></span>
+				</div>
+			</div>
+		</div>
+		<div class="tpl-login">
+			<div class="tpl-login-content">
+				<div class="tpl-login-title">忘记密码</div>
+				<span class="tpl-login-content-info"> 请填写注册邮箱 </span>
+				<form class="am-form tpl-form-line-form"
+					action="#(base)/veriforgetpass" method="post">
+					<div class="am-form-group">
+						<input type="text" class="tpl-form-input" id="user-name"
+							name="email" placeholder="邮箱">
+					</div>
+					<div class="am-form-group">
+						<button type="submit"
+							class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">提交</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="#(base)/admin/assets/js/amazeui.min.js"></script>
+	<script src="#(base)/assets/js/toastr.js"></script>
+	<script src="#(base)/admin/assets/js/app.js"></script>
+
+</body>
+#end

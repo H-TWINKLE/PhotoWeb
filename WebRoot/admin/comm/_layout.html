@@ -1,0 +1,51 @@
+#define _layout()
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta name="referrer" content="never">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>#(title??)</title>
+<meta name="keywords" content="index">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<link rel="icon" sizes="144x144"
+	href="#(base)/fronts/img/favicon/logo.png" type="image/x-icon" />
+
+<link rel="stylesheet" href="#(base)/admin/assets/css/amazeui.min.css" />
+<link rel="stylesheet"
+	href="#(base)/admin/assets/css/amazeui.datatables.min.css" />
+<link rel="stylesheet" href="#(base)/admin/assets/css/app.css">
+<link rel="stylesheet" href="#(base)/assets/css/cropper.min.css" />
+<link rel="stylesheet" href="#(base)/assets/css/toastr.css" />
+
+<script src="#(base)/admin/assets/js/jquery.min.js"></script>
+
+<link href="#(base)/assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="#(base)/assets/css/summernote-bs3.css" rel="stylesheet">
+
+
+<!-- include summernote css/js -->
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css"
+	rel="stylesheet">
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+
+<script type="text/javascript">
+	var tips = "#(TipMsg??)";
+	var base = "#(base??)";
+</script>
+
+</head>
+
+#@_main()
+
+
+</html>
+
+#end

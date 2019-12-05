@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<link rel="stylesheet" href="#(base)/error/css/main.css" type="text/css"
+	media="screen, projection" />
+<!-- main stylesheet -->
+<link rel="stylesheet" type="text/css" media="all"
+	href="#(base)/error/css/tipsy.css" />
+<!-- Tipsy implementation -->
+
+<!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="css/ie8.css" />
+<![endif]-->
+
+<script type="text/javascript"
+	src="#(base)/error/scripts/jquery-1.7.2.min.js"></script>
+<!-- uiToTop implementation -->
+<script type="text/javascript"
+	src="#(base)/error/scripts/custom-scripts.js"></script>
+<script type="text/javascript"
+	src="#(base)/error/scripts/jquery.tipsy.js"></script>
+<!-- Tipsy -->
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		universalPreloader();
+
+	});
+
+	$(window).load(function() {
+
+		//remove Universal Preloader
+		universalPreloaderRemove();
+
+		rotate();
+		dogRun();
+		dogTalk();
+
+		//Tipsy implementation
+		$('.with-tooltip').tipsy({
+			gravity : $.fn.tipsy.autoNS
+		});
+
+	});
+</script>
+
+
+<title>#(title??"没有找到该页面")</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+	<!-- Universal preloader -->
+	<div id="universal-preloader">
+		<div class="preloader">
+			<img src="#(base)/error/images/universal-preloader.gif"
+				alt="universal-preloader" class="universal-preloader-preloader" />
+		</div>
+	</div>
+	<!-- Universal preloader -->
+
+	<div id="wrapper">
+		<!-- 404 graphic -->
+		<div class="graphic"></div>
+		<!-- 404 graphic -->
+		<!-- Not found text -->
+		<div class="not-found-text">
+			<h1 class="not-found-text">没有找到该页面!</h1>
+		</div>
+		<!-- Not found text -->
+
+		<!-- top menu -->
+		<div class="top-menu">
+			<a onclick="window.history.go(-1);" class="with-tooltip"
+				title="返回上一页">返回</a> | <a href="/index" class="with-tooltip"
+				title="返回主页">主页</a> | <a href="https://www.baidu.com"
+				class="with-tooltip" title="百度一下">帮帮我</a>
+		</div>
+		<!-- top menu -->
+
+		<div class="dog-wrapper">
+			<!-- dog running -->
+			<div class="dog"></div>
+			<!-- dog running -->
+
+			<!-- dog bubble talking -->
+			<div class="dog-bubble"></div>
+
+			<!-- The dog bubble rotates these -->
+			<div class="bubble-options">
+				<p class="dog-bubble">先生，你迷路了吗？不用担心，我是一名优秀的导游！</p>
+				<p class="dog-bubble">
+					<br /> 旺旺! 旺旺!
+				</p>
+				<p class="dog-bubble">
+					<br /> 别担心！我明白了！
+				</p>
+				<p class="dog-bubble">
+					我想吃一块小饼干<br /> <img style="margin-top: 8px"
+						src="#(base)/error/images/cookie.png" alt="cookie" />
+				</p>
+				<p class="dog-bubble">
+					<br /> 哎呀！这真叫人讨厌！
+				</p>
+				<p class="dog-bubble">
+					<br /> 糟了，我被遗弃了！
+				</p>
+				<p class="dog-bubble">还是我只是兜圈子？不。。。</p>
+				<p class="dog-bubble">
+					<br /> 好吧，我现在正式输了…
+				</p>
+				<p class="dog-bubble">
+					我看到了 <br /> <img style="margin-top: 8px"
+						src="#(base)/error/images/cat.png" alt="cat" />
+				</p>
+				<p class="dog-bubble">你在找什么呢?? @_@</p>
+			</div>
+			<!-- The dog bubble rotates these -->
+			<!-- dog bubble talking -->
+		</div>
+
+		<!-- planet at the bottom -->
+		<div class="planet"></div>
+		<!-- planet at the bottom -->
+	</div>
+
+	<div style="display: none">
+		<script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540'
+			language='JavaScript' charset='gb2312'></script>
+	</div>
+</body>
+</html>

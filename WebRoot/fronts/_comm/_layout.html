@@ -1,0 +1,198 @@
+#define _fronts()
+<!DOCTYPE html>
+<html class="noIE" lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<title>#(title??)</title>
+
+<meta name="referrer" content="never">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- Favorite Icons -->
+<link rel="icon" sizes="144x144"
+	href="#(base)/fronts/img/favicon/logo.png" type="image/x-icon" />
+<!-- // Favorite Icons -->
+
+<link
+	href='http://fonts.proxy.ustclug.org/css?family=Open+Sans:300,400,600,700'
+	rel='stylesheet' type='text/css'>
+
+<!-- GENERAL CSS FILES -->
+<link rel="stylesheet" href="#(base)/fronts/css/minified.css">
+<!-- // GENERAL CSS FILES -->
+
+<script src="#(base)/fronts/js/jquery.min.js"></script>
+<script src="#(base)/fronts/js/modernizr.min.js"></script>
+<!-- PARTICULAR PAGES CSS FILES -->
+<link rel="stylesheet" href="#(base)/fronts/css/owl.carousel.css">
+<link rel="stylesheet" href="#(base)/fronts/css/owl.theme.css">
+<link rel="stylesheet" href="#(base)/fronts/css/flexslider.css" />
+<!-- // PARTICULAR PAGES CSS FILES -->
+<link rel="stylesheet" href="#(base)/fronts/css/responsive.css">
+<link rel="stylesheet" href="#(base)/assets/css/toastr.css" />
+
+<script type="text/javascript">
+	var tips = "#(TipMsg??)";
+	var base = "#(base??)";
+</script>
+
+
+</head>
+<body class="home">
+
+	<!-- PAGE WRAPPER -->
+	<div id="page-wrapper">
+
+		<!-- SITE HEADER -->
+		<header id="site-header" role="banner">
+			<!-- HEADER TOP -->
+			<div class="header-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6 col-md-7">
+							<!-- CONTACT INFO -->
+							<div class="contact-info">
+								<i class="iconfont-headphones round-icon"></i> <strong>映像探索、点亮生活</strong>
+
+							</div>
+							<!-- // CONTACT INFO -->
+						</div>
+						<div class="col-xs-12 col-sm-6 col-md-5">
+							<ul class="actions unstyled clearfix">							
+								<ul class="log">
+									#if(session.user??)
+									#if(session.user.user_auth??==1)
+									<li><a href="#(base)/user">个人中心</a></li>
+									<li><a href="#(base)/logout">退出</a></li>
+									#else if(session.user.user_auth??==2)
+									<li><a href="#(base)/admin">管理平台</a></li>
+									<li><a href="#(base)/logout">退出</a></li>
+									#end 
+									#else
+									<li><a href="#(base)/login">登录</a></li>
+									<li><a href="#(base)/sign">注册</a></li>
+									#end
+								</ul>								
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- ADD TO CART MESSAGE -->
+				<div class="cart-notification">
+					<ul class="unstyled"></ul>
+				</div>
+				<!-- // ADD TO CART MESSAGE -->
+			</div>
+			<!-- // HEADER TOP -->
+			<!-- MAIN HEADER -->
+
+			<div class="main-header-wrapper">
+				<div class="container">
+					<div class="main-header">
+						<!-- CURRENCY / LANGUAGE / USER MENU -->
+						<div class="actions">
+							<div class="clearfix"></div>
+						</div>
+
+						<div class="logo-wrapper">
+							<a href="#(base)/" class="logo" title="映像探索"> <img
+								src="#(base)/fronts/img/index.png" alt="点亮生活"  style="margin-left: 50px;" width="20%"/>
+							</a>
+						</div>
+						<!-- // SITE LOGO -->
+						<!-- SITE NAVIGATION MENU -->
+
+						<nav id="site-menu" role="navigation">
+							<ul class="main-menu hidden-sm hidden-xs">
+								<li #(li_1??)><a href="#(base)/">首页</a></li>
+								<li #(li_2??)><a href="#(base)/parts">摄影配件</a></li>
+								<li #(li_3??)><a href="#">精选图赏</a> <!-- MEGA MENU -->
+									<div class="mega-menu" data-col-lg="9" data-col-md="12">
+										<div class="row">
+                                         #for(li:session.li_pic??)                                          
+											<div class="col-md-3">												
+												<ul class="mega-sub">										
+													<li><a href="#(base)/onephoto?id=#(li.pic_html_graph_url??)">#(li.pic_auto??)</a></li>																																					
+												</ul>
+											</div>
+                                        #end
+                                        <a style="float: right;margin-left: 50px;margin-top: 50px;"
+                                         href="#(base)/photo">>>全部图集</a>																																
+										</div>
+									</div> <!-- // MEGA MENU --></li>
+								<li #(li_4??)><a href="#(base)/post">交流论坛</a></li>
+								<li #(li_5??)><a href="#(base)/work">作品精华</a></li>
+                                <li #(li_6??)><a href="#(base)/info">最新资讯</a></li>
+							</ul>
+						</nav>
+						<!-- // SITE NAVIGATION MENU -->
+
+					</div>
+				</div>
+			</div>
+			<!-- // MAIN HEADER -->
+		</header>
+		<!-- // SITE HEADER -->
+
+		#@_fmain()
+
+		<!-- SITE FOOTER -->
+		<footer class="page-footer">
+			<div class="footer-sub">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6">
+							<div class="footer-links center-xs clearfix">
+								<ul class="unstyled">
+									<li><a href="#(base)/">主页</a></li> 
+									#if(session.user??==null)
+									<li><a href="#(base)/sign">注册</a></li>
+									<li><a href="#(base)/login">登录</a></li>
+									<li><a href="#(base)/forgetpass">找回密码</a></li> 
+									#else
+									<li><a href="#(base)/user">个人中心</a></li> 
+									#end
+								</ul>
+							</div>
+							<div class="space10"></div>
+							<div class="copyright center-xs">
+								<p>© 2018映像探索. Ccc . All Rights Reserved.</p>
+							</div>
+						</div>
+
+						<div class="space40 visible-xs"></div>
+
+						<div class="col-xs-12 col-sm-6 center-xs">
+							<div class="pull-right">
+								<div class="vmid">
+									<span class="uppercase" style="font-size: 1.8em;">映像探索&emsp;</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</footer>
+		<!-- // SITE FOOTER -->
+
+	</div>
+	<!-- // PAGE WRAPPER -->
+
+	<!-- Essential Javascripts -->
+	<script src="#(base)/fronts/js/minified.js"></script>
+	<!-- // Essential Javascripts -->
+
+	<!-- Particular Page Javascripts -->
+	<script src="#(base)/fronts/js/owl.carousel.js"></script>
+	<script src="#(base)/fronts/js/jquery.flexslider-min.js"></script>
+	<!-- // Particular Page Javascripts -->
+	<script src="#(base)/assets/js/toastr.js"></script>
+	<script src="#(base)/admin/assets/js/app.js"></script>
+	
+</body>
+</html>
+
+#end

@@ -1,0 +1,51 @@
+#@_fronts() #define _fmain()
+
+<div class="breadcrumb-container" style="margin-top: 30px;">
+	<div class="container">
+		<div class="relative">
+			<ul class="bc unstyled clearfix">
+				<li><a href="#(base)/">主页</a></li>
+				<li class="active">个人中心</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<main id="main-content" role="main">
+
+<section class="section">
+	<div class="container">
+
+		<div class="row">
+
+			<aside class="col-xs-12 col-sm-4 col-md-3">
+				<section class="sidebar m-t-b">
+					<section class="side-section">
+						<h3 class="uppercase text-bold">
+							<span class="text-xs">个人中心</span>
+						</h3>
+
+						<ul class="nav nav-tabs nav-stacked">
+							<li><a href="#(base)/user">我的帖子</a></li>
+							<li><a href="#(base)/user/info">个人信息</a></li>
+							<li><a href="#(base)/user/myc">我的评论</a></li>
+							<li><a href="#(base)/user/mynews">我的消息</a></li>
+						</ul>
+					</section>
+				</section>
+			</aside>
+			#@_user()
+		</div>
+	</div>
+
+</section>
+</main>
+
+
+
+
+
+
+
+#end
